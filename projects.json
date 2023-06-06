@@ -1,0 +1,43 @@
+{
+    "103989_venture_global_calcasieu_pass":{
+        "databricks_job_is_active": false,
+        "name":"Venture Global Calcasieu Pass",
+        "jovix_project_id":""
+    }
+    ,"104096_jackson_generation":{
+        "databricks_job_is_active": false,
+        "name":"Jackson Generation",
+        "jovix_project_id":""
+    }
+    ,"104378_three_rivers_energy_center":{
+        "databricks_job_is_active": false,
+        "name":"Three Rivers Energy Center",
+        "jovix_project_id":""
+    }
+    ,"105128_p66_rodeo_renewed":{
+        "databricks_job_is_active": true,
+        "name":"P66 Rodeo Renewed",
+        "jovix_project_id":"Rodeo"
+    }
+    ,"105185_ipp_intermountain_power":{
+        "databricks_job_is_active": false,
+        "name":"IPP Intermountain Power",
+        "jovix_project_id":"",
+        "s3d_reporter_adapter_asset_type_blacklist":["piping_boltup"]
+    }
+    ,"105186_cp_chem_usgc_ii_cracker":{
+        "databricks_job_is_active": true,
+        "name":"CP Chem USGC II Cracker",
+        "jovix_project_id":"CPCHEM"
+    }
+    ,"105289_strathcona_hydrogenated_renewable_diesel_project":{
+        "databricks_job_is_active": true,
+        "name":"SHRD Project",
+        "jovix_project_id":"SHRED"
+    }
+    ,"105269_strathcona_hydrogenated_renewable_diesel_project_yard":{
+        "databricks_job_is_active": true,
+        "name":"SHRD Project Yard",
+        "jovix_project_id":""
+    }
+}

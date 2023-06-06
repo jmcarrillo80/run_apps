@@ -1,0 +1,17 @@
+{
+    "piping_boltup":{
+        "s3d_plant_name":"D_IPP_New",                
+        "s3d_conf_file":"DEV_D_IPP_New_BoltUp.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_DistConnection",
+        "output_database":"DEV_D_IPP_New_BoltUp.db",
+        "table_name":["table1", "table2"]
+    },
+    "piping_pipe":{
+        "s3d_plant_name":"D_IPP_New",                
+        "s3d_conf_file":"DEV_D_IPP_New_Pipe.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Pipes",
+        "output_database":"DEV_D_IPP_New_Pipe.db",
+        "table_name":["table3", "table4"]
+    }    
+
+}    
