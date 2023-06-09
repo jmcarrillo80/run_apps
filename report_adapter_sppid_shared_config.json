@@ -1,0 +1,10 @@
+{
+    "piping_boltup":{
+        "s3d_plant_name":"IPP",                
+        "s3d_conf_file":"IPP_SPPID_PipingComponents.ini",
+        "site": "\\\\kpds2dfwp003\\KPE\\INI\\smartplantv4.ini",
+        "output_database":"IPP_SPPID_PipingComponents.mdb",
+        "table_name":["table1", "table2"]
+    }
+
+}    

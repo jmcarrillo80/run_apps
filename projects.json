@@ -23,7 +23,10 @@
         "databricks_job_is_active": false,
         "name":"IPP Intermountain Power",
         "jovix_project_id":"",
-        "s3d_reporter_adapter_asset_type_blacklist":["piping_boltup"]
+        "s3d_report_adapter":{
+            "s3d_plant_name":"D_IPP_New",
+            "blacklist":["piping_boltup"],
+            "overrides":{"piping_boltup":{"filter": "Catalog Filters\\PDW\\Piping\\Pipe_xxxx"}}}
     }
     ,"105186_cp_chem_usgc_ii_cracker":{
         "databricks_job_is_active": true,

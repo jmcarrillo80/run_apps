@@ -2,7 +2,12 @@ from modulos.subprocessRunTask import RunTask
 from modulos.subprocessParameters import ProjectParameters
 import json
 import os
+from pathlib import Path
 
+
+ROOT_DIRECTORY = Path(r'\\azrcarawd001\PROJECTS')# Path('\\\\azrcarawd001\\PROJECTS')
+APP_DIRECTORY = ROOT_DIRECTORY/'_app'
+cwd = r'C:\Program Files (x86)\CAXperts\3D ReportAdapter'
 
 with open('projects.json') as f:
     project_dict = json.load(f)
@@ -15,16 +20,16 @@ project_s3d_parameters_dict = parameters.getParameters()
 
 print(project_s3d_parameters_dict)
 
-root_directory = r'\\azrcarawd001\PROJECTS'
-cwd = r'C:\Program Files (x86)\CAXperts\3D ReportAdapter'
+
+
 
 for project in project_s3d_parameters_dict:
     for asset_type in project_s3d_parameters_dict[project]:
         plant = project_s3d_parameters_dict[project][asset_type]['s3d_plant_name']
-        directory_ini = os.path.join(root_directory, project, 'ini_s3d')
+        directory_ini = os.path.join(ROOT_DIRECTORY, project, 'ini_s3d')
         config_file = project_s3d_parameters_dict[project][asset_type]['s3d_conf_file']
         filter = project_s3d_parameters_dict[project][asset_type]['filter']
-        directory_output = os.path.join(root_directory, project, 'Output_s3d')
+        directory_output = os.path.join(ROOT_DIRECTORY, project, 'Output_s3d')
         database_file = project_s3d_parameters_dict[project][asset_type]['output_database']
         stdout_file = f"stdout_{project}__{asset_type}.txt"
         stderr_file = f"stderr_{project}__{asset_type}.txt"
