@@ -2,13 +2,19 @@
     "piping_boltup":{
         "s3d_adapter_ini_file":"BoltUp.ini",
         "filter": "Catalog Filters\\PDW\\Piping\\Pipe_DistConnection",
-        "output_database":"DEV_D_IPP_New_BoltUp.db",
+        "output_database":"BoltUp.db",
         "table_name":["table1", "table2"]
     },
+    "piping_equipment":{
+        "s3d_adapter_ini_file":"Equipment.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Eqp_Equipment",
+        "output_database":"Equipment.db",
+        "table_name":["table1", "table2"]
+    },    
     "piping_pipe":{
-        "s3d_adapter_ini_file":"DEV_D_IPP_New_Pipe.ini",
+        "s3d_adapter_ini_file":"Pipe.ini",
         "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Pipes",
-        "output_database":"DEV_D_IPP_New_Pipe.db",
+        "output_database":"Pipe.db",
         "table_name":["table3", "table4"]
     }    
 

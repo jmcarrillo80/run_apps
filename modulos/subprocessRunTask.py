@@ -11,9 +11,16 @@ class RunTask():
 
     
     def subprocess_run(self):
-        f_stdout = open(self.stdout_file, "w")
-        f_stderr = open(self.stderr_file, "w")
-        result = subprocess.run(self.subprocess_run_args, cwd=self.cwd, stdout=f_stdout, stderr=f_stderr, shell=True, text=True, check=True)
-        print(f"\nreturncode:\n{result.returncode}")
+        result =  subprocess.Popen(self.subprocess_run_args, cwd=self.cwd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, text=True)
+        print('Subprocesses running ...')
+        return result
+           
+    def subprocess_logfiles(self, result:subprocess.Popen):
+        result.wait()
+        (out,err) = result.communicate()
+        with open(self.stdout_file, "w") as f_stdout:
+            f_stdout.write(out)
+        with open(self.stderr_file, "w") as f_stderr:
+            f_stderr.write(err)
+        return result.returncode    
 
-        

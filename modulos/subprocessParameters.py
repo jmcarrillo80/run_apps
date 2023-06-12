@@ -8,12 +8,18 @@ class ProjectParameters():
     def getParameters(self):
         project_report_adapter_dict = {}
         for project in self.project_dict:
-            project_attributes = self.project_dict[project]
+            project_dict_keys = self.project_dict[project]
             project_report_adapter_config_dict = self.report_adapter_config_dict.copy()
-            if 's3d_reporter_adapter_asset_type_blacklist' in project_attributes.keys():
-                for asset_type in project_attributes['s3d_reporter_adapter_asset_type_blacklist']:
+            if 's3d_report_adapter' in project_dict_keys:
+                s3d_report_adapter_dict = project_dict_keys['s3d_report_adapter']
+                for asset_type in s3d_report_adapter_dict['blacklist']:
                     if asset_type in project_report_adapter_config_dict:
                         project_report_adapter_config_dict.pop(asset_type)
                 if len(project_report_adapter_config_dict) > 0:
+                    for asset_type in project_report_adapter_config_dict:
+                        project_report_adapter_config_dict[asset_type]['s3d_plant_name'] = s3d_report_adapter_dict['s3d_plant_name']
+                        if asset_type in s3d_report_adapter_dict['overrides']:
+                            project_report_adapter_config_dict[asset_type]['filter'] = s3d_report_adapter_dict['overrides'][asset_type]['filter']
                     project_report_adapter_dict[project] = project_report_adapter_config_dict
-        return project_report_adapter_dict            
+        return project_report_adapter_dict
+    
