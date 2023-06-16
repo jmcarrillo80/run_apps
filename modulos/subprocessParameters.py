@@ -1,3 +1,5 @@
+import os
+
 
 class ProjectParameters():
 
@@ -22,4 +24,16 @@ class ProjectParameters():
                             project_report_adapter_config_dict[asset_type]['filter'] = s3d_report_adapter_dict['overrides'][asset_type]['filter']
                     project_report_adapter_dict[project] = project_report_adapter_config_dict
         return project_report_adapter_dict
+    
+    @staticmethod
+    def createDirectory(directories:dict):
+        subprocess_directories = {}
+        root = directories['root']
+        if not os.path.exists(root):
+            os.makedirs(root)
+        for subdirectory in directories['subdirectories']:
+            if not os.path.exists(root/subdirectory):
+                os.makedirs(root/subdirectory)
+            subprocess_directories[subdirectory] = root/subdirectory
+        return subprocess_directories
     

@@ -25,8 +25,8 @@
         "jovix_project_id":"",
         "s3d_report_adapter":{
             "s3d_plant_name":"D_IPP_New",
-            "blacklist":[],
-            "overrides":{"piping_boltup":{"filter": "Catalog Filters\\PDW\\Piping\\Pipe_DistConnection_override"}}}
+            "blacklist":["piping_boltup", "piping_equipment"],
+            "overrides":{"piping_pipe":{"filter": "Catalog Filters\\PDW\\Piping\\Pipe_Pipes"}}}
     }
     ,"105186_cp_chem_usgc_ii_cracker":{
         "databricks_job_is_active": true,

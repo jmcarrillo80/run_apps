@@ -12,7 +12,7 @@ class RunTask():
     
     def subprocess_run(self):
         result =  subprocess.Popen(self.subprocess_run_args, cwd=self.cwd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, text=True)
-        print('Subprocesses running ...')
+        print('Subprocess running ...')
         return result
            
     def subprocess_logfiles(self, result:subprocess.Popen):
