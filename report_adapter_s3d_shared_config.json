@@ -1,21 +1,86 @@
 {
     "piping_boltup":{
         "s3d_adapter_ini_file":"BoltUp.ini",
-        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_DistConnection",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_DistConnection_ORIGINAL",
         "output_database":"BoltUp.db",
-        "table_name":["table1", "table2"]
+        "table_name":["BoltUp"]
     },
     "piping_equipment":{
         "s3d_adapter_ini_file":"Equipment.ini",
         "filter": "Catalog Filters\\PDW\\Piping\\Eqp_Equipment",
         "output_database":"Equipment.db",
-        "table_name":["table1", "table2"]
-    },    
+        "table_name":["[Equipment&Furnishing]"]
+    },
+    "piping_pipebolt":{
+        "s3d_adapter_ini_file":"PipeBolt.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Bolt",
+        "output_database":"PipeBolt.db",
+        "table_name":["PipeBolt"]
+    },
+    "piping_pipegasket":{
+        "s3d_adapter_ini_file":"PipeGasket.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Gasket",
+        "output_database":"PipeGasket.db",
+        "table_name":["PipeGasket"]
+    },
+    "piping_pipeinstrument":{
+        "s3d_adapter_ini_file":"PipeInstrument.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Instrument",
+        "output_database":"PipeInstrument.db",
+        "table_name":["PipeInstruments"]
+    },
+    "piping_pipeline":{
+        "s3d_adapter_ini_file":"Pipeline.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Line_ORIGINAL",
+        "output_database":"Pipeline.db",
+        "table_name":["Pipeline"]
+    },
+    "piping_pipepart":{
+        "s3d_adapter_ini_file":"PipePart.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Parts",
+        "output_database":"PipePart.db",
+        "table_name":["PipePart"]
+    },
+    "piping_piperun":{
+        "s3d_adapter_ini_file":"Piperun.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Run",
+        "output_database":"Piperun.db",
+        "table_name":["Piperun"]
+    },
     "piping_pipe":{
         "s3d_adapter_ini_file":"Pipe.ini",
-        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Pipes_ORIGINAL",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Pipes",
         "output_database":"Pipe.db",
-        "table_name":["table3", "table4"]
-    }    
-
+        "table_name":["Pipe"]
+    },
+    "piping_pipespitems":{
+        "s3d_adapter_ini_file":"PipeSPItems.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_SPItems",
+        "output_database":"PipeSPItems.db",
+        "table_name":["PipeSPItems"]
+    },
+    "piping_pipespool":{
+        "s3d_adapter_ini_file":"PipeSpool.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Spool",
+        "output_database":"PipeSpool.db",
+        "table_name":["PipeSpool"]
+    },
+    "piping_pipeweld":{
+        "s3d_adapter_ini_file":"PipeWeld.ini",
+        "filter": "Catalog Filters\\PDW\\Piping\\Pipe_Weld",
+        "output_database":"PipeWeld.db",
+        "table_name":["PipeWeld"]
+    },
+    "piping_support":{
+        "s3d_adapter_ini_file":"Support.ini",
+        "filter": "Catalog Filters\\PDW\\Supports\\Support",
+        "output_database":"Support.db",
+        "table_name":["SupportAssembly"]
+    },
+    "piping_supportcomponent":{
+        "s3d_adapter_ini_file":"SupportComponent.ini",
+        "filter": "Catalog Filters\\PDW\\Supports\\Support_Component",
+        "output_database":"SupportComponent.db",
+        "table_name":["SupportComponent"]
+    }
 }    
