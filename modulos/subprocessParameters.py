@@ -1,5 +1,6 @@
 from datetime import datetime
 from pytz import timezone
+import shutil
 import os
 
 
@@ -28,7 +29,7 @@ class ProjectsParameters():
         return project_report_adapter_dict
     
     @staticmethod
-    def getExtractionParameters(subprocess_directories, asset_type, asset_type_config):
+    def getExtractionParameters(directories_project, asset_type, asset_type_config):
         now_date = datetime.now(timezone('America/Chicago')).strftime('%Y-%m-%d')
         extraction_params = {}        
         extraction_params['plant'] = asset_type_config['s3d_plant_name']
@@ -36,22 +37,22 @@ class ProjectsParameters():
         extraction_params['filter'] = asset_type_config['filter']
         extraction_params['permissiongroup'] = asset_type_config['permissiongroup']
         extraction_params['database_file'] = asset_type_config['output_database']        
-        extraction_params['stdout_file'] = subprocess_directories['logFilesExtractions_s3d']/f"{now_date}__{asset_type}_stdout.txt"
-        extraction_params['stderr_file'] = subprocess_directories['logFilesExtractions_s3d']/f"{now_date}__{asset_type}_stderr.txt"
+        extraction_params['stdout_file'] = directories_project['logFilesExtractions_s3d']/f"{now_date}__{asset_type}_stdout.txt"
+        extraction_params['stderr_file'] = directories_project['logFilesExtractions_s3d']/f"{now_date}__{asset_type}_stderr.txt"
         return extraction_params
     
     @staticmethod
-    def getConversionParameters(subprocess_directories, asset_type_config, extraction_params):
+    def getConversionParameters(directories_project, asset_type_config, extraction_params):
         now_date = datetime.now(timezone('America/Chicago')).strftime('%Y-%m-%d')
         conversion_params = {}
-        conversion_params['directory_db'] = f'"{subprocess_directories["output_s3d"]}"'
+        conversion_params['directory_db'] = f'"{directories_project["output_s3d"]}"'
         conversion_params['db_name'] = extraction_params['database_file'].split('.')[0]
         conversion_params['db_fileformat'] = extraction_params['database_file'].split('.')[1]
         conversion_params['tables'] = asset_type_config['table_name']
-        conversion_params['directory_output'] = f'"{subprocess_directories["parquetFiles_s3d"]}"'
+        conversion_params['directory_output'] = f'"{directories_project["parquetFiles_s3d"]}"'
         conversion_params['output_fileFormat'] = 'parquet'
-        conversion_params['stdout_file'] = subprocess_directories['logFilesConversions_s3d']/f"{now_date}__{extraction_params['database_file'].split('.')[0]}_stdout.txt"
-        conversion_params['stderr_file'] = subprocess_directories['logFilesConversions_s3d']/f"{now_date}__{extraction_params['database_file'].split('.')[0]}_stderr.txt"
+        conversion_params['stdout_file'] = directories_project['logFilesConversions_s3d']/f"{now_date}__{extraction_params['database_file'].split('.')[0]}_stdout.txt"
+        conversion_params['stderr_file'] = directories_project['logFilesConversions_s3d']/f"{now_date}__{extraction_params['database_file'].split('.')[0]}_stderr.txt"
         return conversion_params
     
     @staticmethod
@@ -65,4 +66,14 @@ class ProjectsParameters():
                 os.makedirs(root/subdirectory)
             subprocess_directories[subdirectory] = root/subdirectory
         return subprocess_directories
-    
+
+    @staticmethod
+    def createConfigFile(s3d_template_ini_file, s3d_project_ini_file, s3d_database_outputfile):
+        try:
+            shutil.copy(s3d_template_ini_file, s3d_project_ini_file)
+            with open(s3d_project_ini_file) as f:
+                s = f.read().replace('[s3d_database_outputfile]', s3d_database_outputfile)
+            with open(s3d_project_ini_file, 'w') as f:
+                f.write(s)
+        except Exception as e:
+            print(e)

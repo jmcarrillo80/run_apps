@@ -5,8 +5,9 @@ import json
 import os
 
 
-ROOT_DIRECTORY = Path(r'C:\Users\Jorge.Carrillo1\Desktop\S3D CAXPERTS\test')  #Path(r'C:\PROJECTS')
+ROOT_DIRECTORY = Path(r'C:\PROJECTS')
 APP_DIRECTORY = ROOT_DIRECTORY/'_app'
+INI_FILES_DIRECTORY = ROOT_DIRECTORY/'_template'
 
 def main():
     with open('projects.json') as f:
@@ -16,26 +17,29 @@ def main():
         s3d_shared_config_dict = json.load(f)
 
     parameters = ProjectsParameters(project_dict=project_dict, report_adapter_config_dict=s3d_shared_config_dict)
-    project_s3d_parameters_dict = parameters.getParameters()    
+    project_s3d_parameters_dict = parameters.getParameters()
 
     for project_id, project_params in project_s3d_parameters_dict.items():
         root_project = ROOT_DIRECTORY/project_id
+        root_s3d_ini_files = INI_FILES_DIRECTORY/'ini_s3d'
         if not os.path.exists(root_project):
             os.makedirs(root_project)
-        subprocess_directories = ProjectsParameters.createDirectory({'root':root_project, 'subdirectories':['ini_s3d', 'output_s3d', 'logFilesExtractions_s3d', 'logFilesConversions_s3d', 'parquetFiles_s3d']})
-        for asset_type, asset_type_config in project_params.items():            
-            extraction_params = ProjectsParameters.getExtractionParameters(subprocess_directories, asset_type, asset_type_config)
-            conversion_params = ProjectsParameters.getConversionParameters(subprocess_directories, asset_type_config, extraction_params)
-            extraction_run_args = f'"C:\Program Files (x86)\CAXperts\\3D ReportAdapter\\3D ReportAdapter.exe" -plant:{extraction_params["plant"]} -config:{subprocess_directories["ini_s3d"]}\{extraction_params["config_file"]}\n \
+        subdirectory_project = ['ini_s3d', 'output_s3d', 'logFilesExtractions_s3d', 'logFilesConversions_s3d', 'parquetFiles_s3d']
+        directories_project = ProjectsParameters.createDirectory({'root':root_project, 'subdirectories':subdirectory_project})
+        for asset_type, asset_type_config in project_params.items():
+            extraction_params = ProjectsParameters.getExtractionParameters(directories_project, asset_type, asset_type_config)
+            conversion_params = ProjectsParameters.getConversionParameters(directories_project, asset_type_config, extraction_params)
+            ProjectsParameters.createConfigFile(s3d_template_ini_file=Path(root_s3d_ini_files/extraction_params["config_file"]), s3d_project_ini_file=Path(directories_project["ini_s3d"]/extraction_params["config_file"]), s3d_database_outputfile=str(directories_project["output_s3d"]/extraction_params["database_file"]))
+            extraction_run_args = f'"C:\Program Files (x86)\CAXperts\\3D ReportAdapter\\3D ReportAdapter.exe" -plant:{extraction_params["plant"]} -config:{directories_project["ini_s3d"]}\{extraction_params["config_file"]}\n \
                                     -filter:{extraction_params["filter"]}\n \
-                                    -output:{subprocess_directories["output_s3d"]}\{extraction_params["database_file"]}\n \
+                                    -output:{directories_project["output_s3d"]}\{extraction_params["database_file"]}\n \
                                     -permissiongroup:{extraction_params["permissiongroup"]}\n \
                                     -cleanrules\n \
                                     -forceexit:1'
 
             extractionTaskObj = RunTask(subprocess_run_args=extraction_run_args, cwd=Path(r'C:\Program Files (x86)\CAXperts\\3D ReportAdapter'), stdout_file=extraction_params['stdout_file'], stderr_file=extraction_params['stderr_file'])
             print('Subprocess running ...')
-            print(f'plant: {extraction_params["plant"]}\npermissiongroup: {extraction_params["permissiongroup"]}\ndirectory_ini: {subprocess_directories["ini_s3d"]}\nini_file: {extraction_params["config_file"]}\nfilter: {extraction_params["filter"]}\ndirectory_database: {subprocess_directories["output_s3d"]}\ndatabase_file: {extraction_params["database_file"]}')            
+            print(f'plant: {extraction_params["plant"]}\npermissiongroup: {extraction_params["permissiongroup"]}\ndirectory_ini: {directories_project["ini_s3d"]}\nini_file: {extraction_params["config_file"]}\nfilter: {extraction_params["filter"]}\ndirectory_database: {directories_project["output_s3d"]}\ndatabase_file: {extraction_params["database_file"]}')            
             result =  extractionTaskObj.subprocess_run()
             if result.returncode == 0:
                 print('subprocess ID: {} --> executed successfully\n'.format(result.pid))
