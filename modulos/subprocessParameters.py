@@ -1,9 +1,11 @@
+from datetime import datetime
+from pytz import timezone
 import os
 
 
-class ProjectParameters():
+class ProjectsParameters():
 
-    def __init__(self, project_dict:dict, report_adapter_config_dict:dict):
+    def __init__(self, project_dict, report_adapter_config_dict):
         self.project_dict = project_dict
         self.report_adapter_config_dict = report_adapter_config_dict
 
@@ -26,7 +28,34 @@ class ProjectParameters():
         return project_report_adapter_dict
     
     @staticmethod
-    def createDirectory(directories:dict):
+    def getExtractionParameters(subprocess_directories, asset_type, asset_type_config):
+        now_date = datetime.now(timezone('America/Chicago')).strftime('%Y-%m-%d')
+        extraction_params = {}        
+        extraction_params['plant'] = asset_type_config['s3d_plant_name']
+        extraction_params['config_file'] = asset_type_config['s3d_adapter_ini_file']
+        extraction_params['filter'] = asset_type_config['filter']
+        extraction_params['permissiongroup'] = asset_type_config['permissiongroup']
+        extraction_params['database_file'] = asset_type_config['output_database']        
+        extraction_params['stdout_file'] = subprocess_directories['logFilesExtractions_s3d']/f"{now_date}__{asset_type}_stdout.txt"
+        extraction_params['stderr_file'] = subprocess_directories['logFilesExtractions_s3d']/f"{now_date}__{asset_type}_stderr.txt"
+        return extraction_params
+    
+    @staticmethod
+    def getConversionParameters(subprocess_directories, asset_type_config, extraction_params):
+        now_date = datetime.now(timezone('America/Chicago')).strftime('%Y-%m-%d')
+        conversion_params = {}
+        conversion_params['directory_db'] = f'"{subprocess_directories["output_s3d"]}"'
+        conversion_params['db_name'] = extraction_params['database_file'].split('.')[0]
+        conversion_params['db_fileformat'] = extraction_params['database_file'].split('.')[1]
+        conversion_params['tables'] = asset_type_config['table_name']
+        conversion_params['directory_output'] = f'"{subprocess_directories["parquetFiles_s3d"]}"'
+        conversion_params['output_fileFormat'] = 'parquet'
+        conversion_params['stdout_file'] = subprocess_directories['logFilesConversions_s3d']/f"{now_date}__{extraction_params['database_file'].split('.')[0]}_stdout.txt"
+        conversion_params['stderr_file'] = subprocess_directories['logFilesConversions_s3d']/f"{now_date}__{extraction_params['database_file'].split('.')[0]}_stderr.txt"
+        return conversion_params
+    
+    @staticmethod
+    def createDirectory(directories):
         subprocess_directories = {}
         root = directories['root']
         if not os.path.exists(root):
