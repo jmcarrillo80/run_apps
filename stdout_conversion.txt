@@ -1,3 +1,4 @@
-
 Tables from database 'Equipment.db' converted:
+
 	 -[Equipment&Furnishing] --> parquet file
+

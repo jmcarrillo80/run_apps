@@ -1,5 +1,5 @@
-from modulos.subprocessRunTask import RunTask
-from modulos.subprocessParameters import ProjectsParameters
+from modules.subprocessRunTask import RunTask
+from modules.subprocessParameters import ProjectsParameters
 from pathlib import Path
 import json
 import os

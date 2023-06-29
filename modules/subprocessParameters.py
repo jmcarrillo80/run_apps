@@ -30,7 +30,7 @@ class ProjectsParameters():
     
     @staticmethod
     def getExtractionParameters(directories_project, asset_type, asset_type_config):
-        now_date = datetime.now(timezone('America/Chicago')).strftime('%Y-%m-%d')
+        now_date = datetime.now(timezone('America/Chicago')).strftime('%Y-%m-%dT%H_%M_%S')
         extraction_params = {}        
         extraction_params['plant'] = asset_type_config['s3d_plant_name']
         extraction_params['config_file'] = asset_type_config['s3d_adapter_ini_file']
@@ -43,7 +43,7 @@ class ProjectsParameters():
     
     @staticmethod
     def getConversionParameters(directories_project, asset_type_config, extraction_params):
-        now_date = datetime.now(timezone('America/Chicago')).strftime('%Y-%m-%d')
+        now_date = datetime.now(timezone('America/Chicago')).strftime('%Y-%m-%dT%H_%M_%S')
         conversion_params = {}
         conversion_params['directory_db'] = f'"{directories_project["output_s3d"]}"'
         conversion_params['db_name'] = extraction_params['database_file'].split('.')[0]
