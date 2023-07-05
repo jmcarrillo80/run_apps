@@ -1,4 +1,4 @@
-from modulos.subprocessRunTask import RunTask
+from modules.subprocessRunTask import RunTask
 from pathlib import Path
 import json
 
@@ -17,12 +17,9 @@ output_fileformat = 'parquet'
 stdout_file = 'stdout_conversion.txt'
 stderr_file = 'stderr_conversion.txt'
 
-results = []
+
 subprocess_run_args = f'venv\Scripts\python {script_file} {directory_databases} {db_name} {db_fileFormat} {tables} {directory_output} {output_fileformat}'
 print(subprocess_run_args)
 taskObj = RunTask(subprocess_run_args=subprocess_run_args, cwd=cwd, stdout_file=stdout_file, stderr_file=stderr_file)
 result = taskObj.subprocess_run()
-results.append((taskObj, result))
-for taskObj, result in results:
-    returnCode = taskObj.subprocess_logfiles(result)
-    print(returnCode)
+

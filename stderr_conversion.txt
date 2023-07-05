@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+
+  File "C:\Users\Jorge.Carrillo1\Documents\DESARROLLO\VS CODE\DB_CONVERSION_REPO\db_conversion\app.py", line 29, in <module>
+
+    main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6])
+
+IndexError: list index out of range
+
+'Furnishing]']' is not recognized as an internal or external command,
+
+operable program or batch file.
+

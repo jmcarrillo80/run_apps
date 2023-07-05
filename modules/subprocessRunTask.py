@@ -3,7 +3,7 @@ import time
 
 class RunTask():
 
-    def __init__(self, subprocess_run_args:str, cwd:str, stdout_file:str, stderr_file:str):
+    def __init__(self, subprocess_run_args, cwd, stdout_file, stderr_file):
         self.subprocess_run_args = subprocess_run_args
         self.cwd = cwd
         self.stdout_file = stdout_file

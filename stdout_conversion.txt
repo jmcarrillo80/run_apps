@@ -1,4 +1,6 @@
-Tables from database 'Equipment.db' converted:
+Tables from database 'IPP_SPPID_PipingComponents.mdb' converted:
 
-	 -[Equipment&Furnishing] --> parquet file
+	 -PID2 --> parquet file
+
+	 -Instruments --> parquet file
 

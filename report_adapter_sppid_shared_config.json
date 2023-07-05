@@ -1,10 +1,9 @@
 {
-    "piping_boltup":{
-        "s3d_plant_name":"IPP",                
-        "s3d_conf_file":"IPP_SPPID_PipingComponents.ini",
+    "pipingcomponents":{
+        "sppid_adapter_ini_file":"PipingComponents.ini",
         "site": "\\\\kpds2dfwp003\\KPE\\INI\\smartplantv4.ini",
-        "output_database":"IPP_SPPID_PipingComponents.mdb",
-        "table_name":["table1", "table2"]
+        "output_database":"PipingComponents.mdb",
+        "table_name":["Eqp_Nozzle", "InlineComp_Prun", "Instruments"]
     }
 
 }    
