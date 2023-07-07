@@ -9,7 +9,7 @@ ROOT_DIRECTORY = Path(r'C:\PROJECTS')
 APP_DIRECTORY = ROOT_DIRECTORY/'_app'
 INI_FILES_DIRECTORY = ROOT_DIRECTORY/'_template'
 
-def sppid():
+def sppid_extractions():
     with open('projects.json') as f:
         project_dict = json.load(f)
 
@@ -30,25 +30,25 @@ def sppid():
             extraction_params = ProjectsParameters.get_sppid_extractionParameters(directories_project, asset_type, asset_type_config)
             conversion_params = ProjectsParameters.get_sppid_conversionParameters(directories_project, asset_type_config, extraction_params)
             ProjectsParameters.create_sppid_configFile(sppid_template_ini_file=Path(root_sppid_ini_files/extraction_params["config_file"]), sppid_project_ini_file=Path(directories_project["ini_sppid"]/extraction_params["config_file"]), sppid_database_outputfile=str(directories_project["output_sppid"]/extraction_params["database_file"]))
-            # extraction_run_args = []
-            # extraction_run_args.append(f'C:\Program Files (x86)\CAXperts\PID ReportAdapter\PID ReportAdapter.exe')
-            # extraction_run_args.append('/output')
-            # extraction_run_args.append(f'{directories_project["output_sppid"]}\{extraction_params["database_file"]}')
-            # extraction_run_args.append('/site')
-            # extraction_run_args.append(f'{extraction_params["site"]}')
-            # extraction_run_args.append('/plant')
-            # extraction_run_args.append(f'{extraction_params["plant"]}')
-            # extraction_run_args.append('/config')
-            # extraction_run_args.append(f'{directories_project["ini_sppid"]}\{extraction_params["config_file"]}')
-            # extraction_run_args.append('/log')
-            # extraction_run_args.append(f'{extraction_params["stdout_file"]}')
+            extraction_run_args = []
+            extraction_run_args.append(f'C:\Program Files (x86)\CAXperts\PID ReportAdapter\PID ReportAdapter.exe')
+            extraction_run_args.append('/output')
+            extraction_run_args.append(f'{directories_project["output_sppid"]}\{extraction_params["database_file"]}')
+            extraction_run_args.append('/site')
+            extraction_run_args.append(f'{extraction_params["site"]}')
+            extraction_run_args.append('/plant')
+            extraction_run_args.append(f'{extraction_params["plant"]}')
+            extraction_run_args.append('/config')
+            extraction_run_args.append(f'{directories_project["ini_sppid"]}\{extraction_params["config_file"]}')
+            extraction_run_args.append('/log')
+            extraction_run_args.append(f'{extraction_params["stdout_file"]}')
 
-            extraction_run_args = f'"C:\Program Files (x86)\CAXperts\PID ReportAdapter\PID ReportAdapter.exe" '\
-                                  f'/output "{directories_project["output_sppid"]}\{extraction_params["database_file"]}" '\
-                                  f'/site "{extraction_params["site"]}" '\
-                                  f'/plant "{extraction_params["plant"]}" '\
-                                  f'/config "{directories_project["ini_sppid"]}\{extraction_params["config_file"]}" '\
-                                  f'/log "{extraction_params["stdout_file"]}"'
+            # extraction_run_args = f'"C:\Program Files (x86)\CAXperts\PID ReportAdapter\PID ReportAdapter.exe" '\
+            #                       f'/output "{directories_project["output_sppid"]}\{extraction_params["database_file"]}" '\
+            #                       f'/site "{extraction_params["site"]}" '\
+            #                       f'/plant "{extraction_params["plant"]}" '\
+            #                       f'/config "{directories_project["ini_sppid"]}\{extraction_params["config_file"]}" '\
+            #                       f'/log "{extraction_params["stdout_file"]}"'
 
             extractionTaskObj = RunTask(subprocess_run_args=extraction_run_args, cwd=Path(r'C:\Program Files (x86)\CAXperts\PID ReportAdapter'), stdout_file=extraction_params['stdout_file'], stderr_file=extraction_params['stderr_file'])
             print('Subprocess running ...')

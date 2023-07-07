@@ -9,7 +9,7 @@ ROOT_DIRECTORY = Path(r'C:\PROJECTS')
 APP_DIRECTORY = ROOT_DIRECTORY/'_app'
 INI_FILES_DIRECTORY = ROOT_DIRECTORY/'_template'
 
-def s3d():
+def s3d_extractions():
     with open('projects.json') as f:
         project_dict = json.load(f)
 
@@ -30,23 +30,23 @@ def s3d():
             extraction_params = ProjectsParameters.get_s3d_extractionParameters(directories_project, asset_type, asset_type_config)
             conversion_params = ProjectsParameters.get_s3d_conversionParameters(directories_project, asset_type_config, extraction_params)
             ProjectsParameters.create_s3d_configFile(s3d_template_ini_file=Path(root_s3d_ini_files/extraction_params["config_file"]), s3d_project_ini_file=Path(directories_project["ini_s3d"]/extraction_params["config_file"]), s3d_database_outputfile=str(directories_project["output_s3d"]/extraction_params["database_file"]))
-            # extraction_run_args = []
-            # extraction_run_args.append(f'C:\Program Files (x86)\CAXperts\\3D ReportAdapter\\3D ReportAdapter.exe')
-            # extraction_run_args.append(f'-plant:{extraction_params["plant"]}')
-            # extraction_run_args.append(f'-config:{directories_project["ini_s3d"]}\{extraction_params["config_file"]}')
-            # extraction_run_args.append(f'-filter:{extraction_params["filter"]}')
-            # extraction_run_args.append(f'-output:{directories_project["output_s3d"]}\{extraction_params["database_file"]}')
-            # extraction_run_args.append(f'-permissiongroup:{extraction_params["permissiongroup"]}')
-            # extraction_run_args.append("-cleanrules")
-            # extraction_run_args.append("-forceexit:1")
+            extraction_run_args = []
+            extraction_run_args.append(f'C:\Program Files (x86)\CAXperts\\3D ReportAdapter\\3D ReportAdapter.exe')
+            extraction_run_args.append(f'-plant:{extraction_params["plant"]}')
+            extraction_run_args.append(f'-config:{directories_project["ini_s3d"]}\{extraction_params["config_file"]}')
+            extraction_run_args.append(f'-filter:{extraction_params["filter"]}')
+            extraction_run_args.append(f'-output:{directories_project["output_s3d"]}\{extraction_params["database_file"]}')
+            extraction_run_args.append(f'-permissiongroup:{extraction_params["permissiongroup"]}')
+            extraction_run_args.append("-cleanrules")
+            extraction_run_args.append("-forceexit:1")
 
-            extraction_run_args = f'"C:\Program Files (x86)\CAXperts\\3D ReportAdapter\\3D ReportAdapter.exe" '\
-                                  f'-plant:"{extraction_params["plant"]}" '\
-                                  f'-config:"{directories_project["ini_s3d"]}\{extraction_params["config_file"]}" '\
-                                  f'-filter:"{extraction_params["filter"]}" '\
-                                  f'-output:"{directories_project["output_s3d"]}\{extraction_params["database_file"]}" '\
-                                  f'-permissiongroup:"{extraction_params["permissiongroup"]}" '\
-                                  f'-cleanrules -forceexit:1'
+            # extraction_run_args = f'"C:\Program Files (x86)\CAXperts\\3D ReportAdapter\\3D ReportAdapter.exe" '\
+            #                       f'-plant:"{extraction_params["plant"]}" '\
+            #                       f'-config:"{directories_project["ini_s3d"]}\{extraction_params["config_file"]}" '\
+            #                       f'-filter:"{extraction_params["filter"]}" '\
+            #                       f'-output:"{directories_project["output_s3d"]}\{extraction_params["database_file"]}" '\
+            #                       f'-permissiongroup:"{extraction_params["permissiongroup"]}" '\
+            #                       f'-cleanrules -forceexit:1'
 
             extractionTaskObj = RunTask(subprocess_run_args=extraction_run_args, cwd=Path(r'C:\Program Files (x86)\CAXperts\\3D ReportAdapter'), stdout_file=extraction_params['stdout_file'], stderr_file=extraction_params['stderr_file'])
             print('Subprocess running ...')

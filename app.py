@@ -1,10 +1,10 @@
-from modules.s3d import s3d
-from modules.sppid import sppid
+from modules.s3d import s3d_extractions
+from modules.sppid import sppid_extractions
 
 
 def main():
-    s3d()
-    sppid()
+    s3d_extractions()
+    sppid_extractions()
 
 
 

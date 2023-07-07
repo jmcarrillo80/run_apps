@@ -8,7 +8,7 @@
     },
     "piping_equipment":{
         "s3d_adapter_ini_file":"Equipment.ini",
-        "filter": "Catalog Filters\\PDW\\Piping\\Eqp_Equipment",
+        "filter": "Catalog Filters\\PDW\\Equipment\\Eqp_Equipment",
         "permissiongroup":"Admin",
         "output_database":"Equipment.db",
         "table_name":["[Equipment&Furnishing]"]
