@@ -28,7 +28,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_BoltUp'
-            parquet_file_app = 'BoltUp__BoltUp.parquet'
+            parquet_file_app = 'BoltUp_BoltUp.parquet'
             tables = ["BoltUp"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -57,8 +57,8 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_Equipment'
-            parquet_file_app = 'Equipment__[Equipment&Furnishing].parquet'
-            tables = ["[Equipment&Furnishing]"]            
+            parquet_file_app = 'Equipment_EquipmentFurnishing.parquet'
+            tables = ["EquipmentFurnishing"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
             conversion_run_args.append(self.app_name)
@@ -86,7 +86,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_Pipe'
-            parquet_file_app = 'Pipe__Pipe.parquet'
+            parquet_file_app = 'Pipe_Pipe.parquet'
             tables = ["Pipe"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -115,7 +115,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_PipeBolt'
-            parquet_file_app = 'PipeBolt__PipeBolt.parquet'
+            parquet_file_app = 'PipeBolt_PipeBolt.parquet'
             tables = ["PipeBolt"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -144,7 +144,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_PipeGasket'
-            parquet_file_app = 'PipeGasket__PipeGasket.parquet'
+            parquet_file_app = 'PipeGasket_PipeGasket.parquet'
             tables = ["PipeGasket"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -173,7 +173,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_PipeInstrument'
-            parquet_file_app = 'PipeInstrument__PipeInstruments.parquet'
+            parquet_file_app = 'PipeInstrument_PipeInstruments.parquet'
             tables = ["PipeInstruments"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -202,7 +202,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_Pipeline'
-            parquet_file_app = 'Pipeline__Pipeline.parquet'
+            parquet_file_app = 'Pipeline_Pipeline.parquet'
             tables = ["Pipeline"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -231,7 +231,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_PipePart'
-            parquet_file_app = 'PipePart__PipePart.parquet'
+            parquet_file_app = 'PipePart_PipePart.parquet'
             tables = ["PipePart"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -260,7 +260,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_Piperun'
-            parquet_file_app = 'Piperun__Piperun.parquet'
+            parquet_file_app = 'Piperun_Piperun.parquet'
             tables = ["Piperun"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -289,7 +289,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_PipeSPItems'
-            parquet_file_app = 'PipeSPItems__PipeSPItems.parquet'
+            parquet_file_app = 'PipeSPItems_PipeSPItems.parquet'
             tables = ["PipeSPItems"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -318,7 +318,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_PipeSpool'
-            parquet_file_app = 'PipeSpool__PipeSpool.parquet'
+            parquet_file_app = 'PipeSpool_PipeSpool.parquet'
             tables = ["PipeSpool"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -347,7 +347,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_PipeWeld'
-            parquet_file_app = 'PipeWeld__PipeWeld.parquet'
+            parquet_file_app = 'PipeWeld_PipeWeld.parquet'
             tables = ["PipeWeld"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -376,7 +376,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_Support'
-            parquet_file_app = 'Support__SupportAssembly.parquet'
+            parquet_file_app = 'Support_SupportAssembly.parquet'
             tables = ["SupportAssembly"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
@@ -405,8 +405,66 @@ class ParquetFilesTestCase(unittest.TestCase):
             print(result_batch_run.stdout)
             print(result_batch_run.stderr)
             db_name = 'DEV_D_IPP_New_SupportComponent'
-            parquet_file_app = 'SupportComponent__SupportComponent.parquet'
+            parquet_file_app = 'SupportComponent_SupportComponent.parquet'
             tables = ["SupportComponent"]            
+            conversion_run_args = []
+            conversion_run_args.append(self.interpreter)
+            conversion_run_args.append(self.app_name)
+            conversion_run_args.append(self.directory_db)
+            conversion_run_args.append(db_name)
+            conversion_run_args.append(self.db_fileformat)
+            conversion_run_args.append(json.dumps(tables))
+            conversion_run_args.append(self.output_path)
+            conversion_run_args.append(self.output_fileformat)
+            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch.unlink(missing_ok=True)
+            result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
+            print(result_batch_db_conversion.stdout)
+            print(result_batch_db_conversion.stderr)
+            df_parquet_batch = pd.read_parquet(parquet_file_batch, engine='pyarrow')
+            df_parquet_app = pd.read_parquet(self.app_parquet_path/parquet_file_app, engine='pyarrow')
+            df = df_parquet_batch.compare(df_parquet_app)
+            self.assertTrue(len(df) == 0)
+
+
+    def test_EleTrayParts(self):
+            batch_file = 'DEV_D_IPP_New_EleTrayParts.cmd'
+            print("running batch file: ", batch_file)            
+            result_batch_run = subprocess.run([batch_file], cwd=self.batch_files_path, shell=True, capture_output=True, text=True)
+            print(result_batch_run.stdout)
+            print(result_batch_run.stderr)
+            db_name = 'DEV_D_IPP_New_EleTrayParts'
+            parquet_file_app = 'EleTrayParts_Cableway.parquet'
+            tables = ["Cableway"]            
+            conversion_run_args = []
+            conversion_run_args.append(self.interpreter)
+            conversion_run_args.append(self.app_name)
+            conversion_run_args.append(self.directory_db)
+            conversion_run_args.append(db_name)
+            conversion_run_args.append(self.db_fileformat)
+            conversion_run_args.append(json.dumps(tables))
+            conversion_run_args.append(self.output_path)
+            conversion_run_args.append(self.output_fileformat)
+            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch.unlink(missing_ok=True)
+            result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
+            print(result_batch_db_conversion.stdout)
+            print(result_batch_db_conversion.stderr)
+            df_parquet_batch = pd.read_parquet(parquet_file_batch, engine='pyarrow')
+            df_parquet_app = pd.read_parquet(self.app_parquet_path/parquet_file_app, engine='pyarrow')
+            df = df_parquet_batch.compare(df_parquet_app)
+            self.assertTrue(len(df) == 0)
+
+
+    def test_EleConduitParts(self):
+            batch_file = 'DEV_D_IPP_New_EleConduitParts.cmd'
+            print("running batch file: ", batch_file)            
+            result_batch_run = subprocess.run([batch_file], cwd=self.batch_files_path, shell=True, capture_output=True, text=True)
+            print(result_batch_run.stdout)
+            print(result_batch_run.stderr)
+            db_name = 'DEV_D_IPP_New_EleConduitParts'
+            parquet_file_app = 'EleConduitParts_Conduit.parquet'
+            tables = ["Conduit"]            
             conversion_run_args = []
             conversion_run_args.append(self.interpreter)
             conversion_run_args.append(self.app_name)

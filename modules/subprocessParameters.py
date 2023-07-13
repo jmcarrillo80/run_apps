@@ -55,8 +55,8 @@ class ProjectsParameters():
         extraction_params['filter'] = asset_type_config['filter']
         extraction_params['permissiongroup'] = asset_type_config['permissiongroup']
         extraction_params['database_file'] = asset_type_config['output_database']        
-        extraction_params['stdout_file'] = directories_project['logFilesExtractions_s3d']/f"{now_date}__{asset_type}_stdout.txt"
-        extraction_params['stderr_file'] = directories_project['logFilesExtractions_s3d']/f"{now_date}__{asset_type}_stderr.txt"
+        extraction_params['stdout_file'] = directories_project['logFilesExtractions_s3d']/f"{now_date}_{asset_type}_stdout.txt"
+        extraction_params['stderr_file'] = directories_project['logFilesExtractions_s3d']/f"{now_date}_{asset_type}_stderr.txt"
         return extraction_params
     
     @staticmethod
@@ -67,8 +67,8 @@ class ProjectsParameters():
         extraction_params['config_file'] = asset_type_config['sppid_adapter_ini_file']
         extraction_params['site'] = asset_type_config['site']
         extraction_params['database_file'] = asset_type_config['output_database']        
-        extraction_params['stdout_file'] = directories_project['logFilesExtractions_sppid']/f"{now_date}__{asset_type}_stdout.txt"
-        extraction_params['stderr_file'] = directories_project['logFilesExtractions_sppid']/f"{now_date}__{asset_type}_stderr.txt"
+        extraction_params['stdout_file'] = directories_project['logFilesExtractions_sppid']/f"{now_date}_{asset_type}_stdout.txt"
+        extraction_params['stderr_file'] = directories_project['logFilesExtractions_sppid']/f"{now_date}_{asset_type}_stderr.txt"
         return extraction_params
     
     @staticmethod
@@ -81,8 +81,8 @@ class ProjectsParameters():
         conversion_params['tables'] = asset_type_config['table_name']
         conversion_params['directory_output'] = directories_project["parquetFiles_s3d"]
         conversion_params['output_fileFormat'] = 'parquet'
-        conversion_params['stdout_file'] = directories_project['logFilesConversions_s3d']/f"{now_date}__{extraction_params['database_file'].split('.')[0]}_stdout.txt"
-        conversion_params['stderr_file'] = directories_project['logFilesConversions_s3d']/f"{now_date}__{extraction_params['database_file'].split('.')[0]}_stderr.txt"
+        conversion_params['stdout_file'] = directories_project['logFilesConversions_s3d']/f"{now_date}_{extraction_params['database_file'].split('.')[0]}_stdout.txt"
+        conversion_params['stderr_file'] = directories_project['logFilesConversions_s3d']/f"{now_date}_{extraction_params['database_file'].split('.')[0]}_stderr.txt"
         return conversion_params
     
     @staticmethod
@@ -95,8 +95,8 @@ class ProjectsParameters():
         conversion_params['tables'] = asset_type_config['table_name']
         conversion_params['directory_output'] = directories_project["parquetFiles_sppid"]
         conversion_params['output_fileFormat'] = 'parquet'
-        conversion_params['stdout_file'] = directories_project['logFilesConversions_sppid']/f"{now_date}__{extraction_params['database_file'].split('.')[0]}_stdout.txt"
-        conversion_params['stderr_file'] = directories_project['logFilesConversions_sppid']/f"{now_date}__{extraction_params['database_file'].split('.')[0]}_stderr.txt"
+        conversion_params['stdout_file'] = directories_project['logFilesConversions_sppid']/f"{now_date}_{extraction_params['database_file'].split('.')[0]}_stdout.txt"
+        conversion_params['stderr_file'] = directories_project['logFilesConversions_sppid']/f"{now_date}_{extraction_params['database_file'].split('.')[0]}_stderr.txt"
         return conversion_params    
     
     @staticmethod

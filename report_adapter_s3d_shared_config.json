@@ -11,7 +11,7 @@
         "filter": "Catalog Filters\\PDW\\Equipment\\Eqp_Equipment",
         "permissiongroup":"Admin",
         "output_database":"Equipment.db",
-        "table_name":["[Equipment&Furnishing]"]
+        "table_name":["EquipmentFurnishing"]
     },
     "piping_pipebolt":{
         "s3d_adapter_ini_file":"PipeBolt.ini",
@@ -96,5 +96,19 @@
         "permissiongroup":"Admin",
         "output_database":"SupportComponent.db",
         "table_name":["SupportComponent"]
+    },
+    "electrical_trayparts":{
+        "s3d_adapter_ini_file":"EleTrayParts.ini",
+        "filter": "Catalog Filters\\PDW\\Electrical\\Ele_TrayParts",
+        "permissiongroup":"Admin",
+        "output_database":"EleTrayParts.db",
+        "table_name":["Cableway"]
+    },
+    "electrical_conduitparts":{
+        "s3d_adapter_ini_file":"EleConduitParts.ini",
+        "filter": "Catalog Filters\\PDW\\Electrical\\Ele_ConduitParts",
+        "permissiongroup":"Admin",
+        "output_database":"EleConduitParts.db",
+        "table_name":["Conduit"]
     }
 }    

@@ -3,7 +3,7 @@
         "sppid_adapter_ini_file":"PipingComponents.ini",
         "site": "\\\\kpds2dfwp003\\KPE\\INI\\smartplantv4.ini",
         "output_database":"PipingComponents.mdb",
-        "table_name":["Eqp_Nozzle", "InlineComp_Prun", "Instruments"]
+        "table_name":["Eqp_Nozzle", "InlineComp_Prun", "Instruments", "PID"]
     }
 
 }    

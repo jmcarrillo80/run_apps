@@ -1,6 +1,10 @@
 Tables from database 'IPP_SPPID_PipingComponents.mdb' converted:
 
-	 -PID2 --> parquet file
+	 -InlineComp_Prun --> parquet file
+
+	 -Eqp_Nozzle --> parquet file
 
 	 -Instruments --> parquet file
+
+	 -PID --> parquet file
 
