@@ -39,7 +39,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -68,7 +68,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -97,7 +97,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -126,7 +126,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -155,7 +155,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -184,7 +184,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -213,7 +213,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -242,7 +242,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -271,7 +271,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -300,7 +300,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -329,7 +329,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -358,7 +358,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -387,7 +387,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -416,7 +416,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -445,7 +445,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)
@@ -474,7 +474,7 @@ class ParquetFilesTestCase(unittest.TestCase):
             conversion_run_args.append(json.dumps(tables))
             conversion_run_args.append(self.output_path)
             conversion_run_args.append(self.output_fileformat)
-            parquet_file_batch = self.output_path/f'{db_name}__{tables[0]}.parquet'
+            parquet_file_batch = self.output_path/f'{db_name}_{tables[0]}.parquet'
             parquet_file_batch.unlink(missing_ok=True)
             result_batch_db_conversion = subprocess.run(conversion_run_args, cwd=self.app_conversion_path, shell=True, capture_output=True, text=True)
             print(result_batch_db_conversion.stdout)

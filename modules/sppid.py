@@ -1,5 +1,8 @@
 from modules.subprocessRunTask import RunTask
 from modules.subprocessParameters import ProjectsParameters
+from modules.KeyVault import get_sas_token, get_storage_account_name
+from modules.dataLake import initialize_storage_account_sas, create_directory, get_directory, upload_file_to_directory_bulk
+from datetime import datetime
 from pathlib import Path
 import json
 import os
@@ -8,8 +11,13 @@ import os
 ROOT_DIRECTORY = Path(r'C:\PROJECTS')
 APP_DIRECTORY = ROOT_DIRECTORY/'_app'
 INI_FILES_DIRECTORY = ROOT_DIRECTORY/'_template'
+CONTAINER = 'landing'
+SAS_TOKEN = get_sas_token()
+STORAGE_ACCOUNT_NAME = get_storage_account_name()
 
 def sppid_extractions():
+    now_date = datetime.utcnow()
+    service_client = initialize_storage_account_sas(storage_account_name=STORAGE_ACCOUNT_NAME, sas_token=SAS_TOKEN)
     with open('projects.json') as f:
         project_dict = json.load(f)
 
@@ -20,6 +28,8 @@ def sppid_extractions():
     project_sppid_parameters_dict = parameters.get_sppid_parameters()
 
     for project_id, project_params in project_sppid_parameters_dict.items():
+        root_project_datalake = create_directory(service_client=service_client, file_system=CONTAINER, directory=f'test_vscode/{project_id}')
+        app_name_datalake_directory = create_directory(service_client=service_client, file_system=CONTAINER, directory=f'{root_project_datalake.path_name}/SPPID')
         root_project = ROOT_DIRECTORY/project_id
         root_sppid_ini_files = INI_FILES_DIRECTORY/'ini_sppid'
         if not os.path.exists(root_project):
@@ -75,6 +85,16 @@ def sppid_extractions():
                 resultConversion = conversionTaskObj.subprocess_run()
                 if resultConversion.returncode == 0:
                     print('subprocess ID: {} --> executed successfully\n'.format(resultConversion.pid))
+                    for table in conversion_params["tables"]:
+                        table_name = f'{conversion_params["db_name"]}_{table}'
+                        table_name_datalake_directory = create_directory(service_client=service_client, file_system=CONTAINER, directory=f'{app_name_datalake_directory.path_name}/{table_name}')
+                        _pdwetl_year_datalake_directory = create_directory(service_client=service_client, file_system=CONTAINER, directory=f'{table_name_datalake_directory.path_name}/_pdwetl_year={now_date.year}')
+                        _pdwetl_month_datalake_directory = create_directory(service_client=service_client, file_system=CONTAINER, directory=f'{_pdwetl_year_datalake_directory.path_name}/_pdwetl_month={now_date.month}')
+                        _pdwetl_day_datalake_directory = create_directory(service_client=service_client, file_system=CONTAINER, directory=f'{_pdwetl_month_datalake_directory.path_name}/_pdwetl_day={now_date.day}')
+                        upload_datalake_directory = get_directory(service_client=service_client, file_system=CONTAINER, directory=_pdwetl_day_datalake_directory.path_name)
+                        file_name_datalake = f"{now_date.strftime('%Y-%m-%dT%H:%M:%SZ')}.parquet"
+                        local_file_path = f'{conversion_params["directory_output"]}\{table_name}.parquet'
+                        upload_file_to_directory_bulk(directory_client=upload_datalake_directory, file_name_client=file_name_datalake, local_file_path=local_file_path)
                 else:
                     print('subprocess ID: {} --> NOT executed successfully\n'.format(resultConversion.pid))
             else:
